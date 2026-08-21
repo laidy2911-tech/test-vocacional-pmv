@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Test vocacional básico para orientar a estudiantes hacia áreas profesionales.">
+  <title>Te guiaremos a tu futuro | PMV</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="home" class="screen active">
+      <div class="hero-card">
+        <span class="badge">PRODUCTO MÍNIMO VIABLE</span>
+        <h1>Te guiaremos a tu <span>futuro</span></h1>
+        <p>Descubre qué áreas profesionales se relacionan mejor con tus intereses y forma de pensar.</p>
+        <ul class="features">
+          <li>25 preguntas rápidas</li>
+          <li>Resultado personalizado</li>
+          <li>Gratis y fácil de usar</li>
+        </ul>
+        <button class="primary-btn" onclick="goToRegister()">Comenzar test</button>
+      </div>
+    </section>
+
+    <section id="register" class="screen">
+      <div class="card form-card">
+        <button class="back-btn" onclick="showScreen('home')">← Volver</button>
+        <span class="step">PASO 1 DE 2</span>
+        <h2>Antes de comenzar</h2>
+        <p>Cuéntanos un poco sobre ti.</p>
+        <form id="userForm">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" maxlength="60" placeholder="Escribe tu nombre" required>
+
+          <label for="age">Edad</label>
+          <input id="age" name="age" type="number" min="12" max="30" placeholder="Ej. 16" required>
+
+          <label for="grade">Grado</label>
+          <select id="grade" name="grade" required>
+            <option value="">Selecciona tu grado</option>
+            <option>3ro de secundaria</option>
+            <option>4to de secundaria</option>
+            <option>5to de secundaria</option>
+            <option>Egresado/a</option>
+          </select>
+          <button class="primary-btn" type="submit">Continuar</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="test" class="screen">
+      <div class="card test-card">
+        <div class="test-top">
+          <span id="questionCounter">Pregunta 1 de 25</span>
+          <span id="progressPercent">4%</span>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="categoryLabel" class="category">Intereses</p>
+        <h2 id="questionText"></h2>
+        <div id="answers" class="answers"></div>
+        <button id="nextBtn" class="primary-btn" disabled>Siguiente</button>
+      </div>
+    </section>
+
+    <section id="results" class="screen">
+      <div class="card results-card">
+        <span class="badge">RESULTADO</span>
+        <h2 id="resultGreeting">¡Listo!</h2>
+        <p>Según tus respuestas, estas son las áreas que más se relacionan contigo:</p>
+        <div id="resultList" class="result-list"></div>
+        <div class="result-note"><strong>Recuerda:</strong> este test es una orientación inicial. Tu decisión profesional también depende de tus metas, habilidades y oportunidades.</div>
+        <div class="result-actions">
+          <button class="primary-btn" onclick="restartTest()">Realizar nuevamente</button>
+          <button class="secondary-btn" onclick="showScreen('home')">Volver al inicio</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
